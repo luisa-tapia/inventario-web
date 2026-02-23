@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<section id="login">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="iniciarSesion()">Entrar</button>
+</section>
+
+<section id="app" style="display:none;">
+<body>
+
+    <header>
+        <h1>Inventario</h1>
+    </header>
+	<button onclick="toggleDarkMode()">🌙</button>
+<section id="dashboard">
+
+    <h3>Resumen</h3>
+    <p>Total productos: <span id="totalProductos">0</span></p>
+    <p>Stock total: <span id="stockTotal">0</span></p>
+    <p>Valor total inventario: $<span id="valorTotal">0</span></p>
+</section>
+<section>
+    <h3>Historial</h3>
+    <div id="historial"></div>
+</section>
+    <section class="formulario">
+        <input type="text" id="talla" placeholder="Talla (S, M, L, XL, XXL)">
+        <input type="text" id="diseno" placeholder="Diseño">
+        <input type="number" id="cantidad" placeholder="Cantidad">
+		<input type="text" id="codigo" placeholder="Código de barras">
+        <button onclick="agregarProducto()">Agregar</button>
+    </section>
+<input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()">
+    <section id="listaProductos" class="productos"></section>
+
+    <script src="app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="graficaInventario"></canvas>
+</body>
+</section>
+</html>
