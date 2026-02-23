@@ -182,6 +182,27 @@ function buscarPorCodigo(codigoEscaneado) {
         alert("Producto no encontrado");
     }
 }
+function iniciarCamara() {
+    const html5QrCode = new Html5Qrcode("reader");
+
+    html5QrCode.start(
+        { facingMode: "environment" },
+        {
+            fps: 10,
+            qrbox: 250
+        },
+        (codigo) => {
+            document.getElementById("diseno").value = codigo;
+            html5QrCode.stop();
+            document.getElementById("reader").innerHTML = "";
+        },
+        (error) => {
+            console.log("Escaneando...");
+        }
+    ).catch(err => {
+        console.log("Error al iniciar cámara", err);
+    });
+}
 function guardarDatos() {
     localStorage.setItem("inventario", JSON.stringify(productos));
 }
